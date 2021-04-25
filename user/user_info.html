@@ -18,22 +18,23 @@
         <div class="layui-card-body">
             <!-- form 表单区域 -->
             <form class="layui-form" action="" lay-filter="formUserInfo">
+                <input type="hidden" name='id'>
                 <div class="layui-form-item">
                     <label class="layui-form-label">登录名称</label>
                     <div class="layui-input-block">
-                        <input type="text" name="username" required lay-verify="required" placeholder="请输入登录名称" autocomplete="off" class="layui-input" />
+                        <input type="text" name="username" readonly required lay-verify="required" placeholder="请输入登录名称" autocomplete="off" class="layui-input" />
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户昵称</label>
                     <div class="layui-input-block">
-                        <input type="text" name="nickname" required lay-verify="required" placeholder="请输入用户昵称" autocomplete="off" class="layui-input" />
+                        <input type="text" name="nickname" required lay-verify="required|Length" placeholder="请输入用户昵称" autocomplete="off" class="layui-input" />
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <label class="layui-form-label">用户邮箱</label>
                     <div class="layui-input-block">
-                        <input type="text" name="email" required lay-verify="required" placeholder="请输入用户邮箱" autocomplete="off" class="layui-input" />
+                        <input type="text" name="email" required lay-verify="required|email" placeholder="请输入用户邮箱" autocomplete="off" class="layui-input" />
                     </div>
                 </div>
                 <div class="layui-form-item">
@@ -46,7 +47,12 @@
         </div>
     </div>
     <script src="/assets/lib/layui/layui.all.js"></script>
-
+    <!-- (先用jquery对象所以先引入jquery文件)引入jquery文件 -->
+    <script src="/assets/lib/jquery.js"></script>
+    <!-- (二是公共样式里利用了jqery对象样式,所以后引入公共样式)引入公共样式文件 -->
+    <script src="/assets/js/public.js"></script>
+    <!-- (三自己设置的样式文件里需要用到公共样式和jquery对象所以放在最后)引入userInfo文件 -->
+    <script src="/assets/js/user/userInfo.js"></script>
 </body>
 
 </html>
