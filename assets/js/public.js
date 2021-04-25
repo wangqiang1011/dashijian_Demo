@@ -8,5 +8,15 @@ $(function(){
                 Authorization:localStorage.getItem('token')
             }
         }
+        //调用ajax中自定义complete方法
+        options.complete = function(res){
+            console.log(res);
+            if(res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！'){
+                //清除本地token的数据
+                localStorage.removeItem('token')
+                //强制跳转到登陆页面
+                location.href='/login.html'
+            }
+        }
     })
 })

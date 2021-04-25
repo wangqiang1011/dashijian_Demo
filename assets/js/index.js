@@ -39,4 +39,15 @@ $(function(){
             $('.layui-nav-img').hide()
         }
     }
+    //点击退出登录按钮进行页面的退出操作
+    $('#logout').on('click',function(){
+        //进行提示用户是否退出
+        layui.layer.confirm('确定退出登录吗?', {icon: 3, title:'来自星星的提示'}, function(index){
+            //确定后清除本地数据
+            localStorage.removeItem('token')
+            //进行页面的跳转
+            location.href = '/login.html'
+            layer.close(index);
+          });
+    })
 })
